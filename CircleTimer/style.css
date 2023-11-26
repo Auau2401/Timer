@@ -1,0 +1,78 @@
+*{
+    font-family: sans-serif, 'Mitr';
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #696969;
+}
+
+.target_div {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.fast_counter{
+    font-size: 4vw;
+}
+
+.countdown_high_div{
+    position: absolute;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.t_seconds {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    text-align: center;
+}
+  
+.t_seconds img {
+    width: 100%;
+    height: auto;
+  } 
+
+.t_minutes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    text-align: center;
+}
+
+.t_minutes img {
+  width: 100%;
+  height: auto;
+}
+
+.t_hours {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    text-align: center;
+}
+
+.t_hours img {
+  width: 100%;
+  height: auto;
+} 

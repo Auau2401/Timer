@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="script" href="/script.js">
+  <title>Timer</title>
+</head>
+<body onload="updateOnce()">
+
+  <div id="target" class="target_div">
+
+  </div>
+
+  <div id="countdown_high" class="countdown_high_div">
+
+  </div>
+  
+  <div id="countdown_low" class="countdown_low_div">
+
+  </div>
+
+  <div class="t_seconds">
+    <img id="t_seconds_img" src="/images/Circle.png">
+  </div>
+
+  <div class="t_minutes">
+    <img id="t_minutes_img" src="/images/Circle.png">
+  </div>
+
+  <div class="t_hours">
+    <img id="t_hours_img" src="/images/Circle.png">
+  </div>
+
+  
+
+</body>
+
+<script>
+  const targetDate = new Date('2027-01-01T15:29:00').getTime();
+
+  const seconds = '';
+  const minutes = '';
+  const hours = '';
+  const days = '';
+  const weeks = '';
+  const months = '';
+  const years = '';
+
+  rotationSeconds = '';
+  rotationMinutes = '';
+  rotationHours = '';
+
+  function addLeadingZero(value) {
+    return value < 10 ? `0${value}` : value;
+  }
+
+  function formatTime(unit, text) {
+    return unit > 0 ? `${unit} ${unit === 1 ? text : text + 's'}` : '';
+  }
+
+  function updateOnce() {
+    const currentDate = new Date().getTime();
+    const timeRemaining = targetDate - currentDate;
+
+    const seconds = Math.floor((timeRemaining / 1000) % 60);
+    const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const weeks = Math.floor(days / 7);
+    const months = Math.floor(weeks / 4);
+    const years = Math.floor(months / 12);
+
+    rotationSeconds = (360 / 60) * seconds;
+    rotationMinutes = (360 / 60) * minutes;
+    rotationHours = (360 / 12) * hours;
+
+    console.log(rotationSeconds);
+  }
+
+  function updateCountdown() {
+    const currentDate = new Date().getTime();
+    const timeRemaining = targetDate - currentDate;
+
+    const seconds = Math.floor((timeRemaining / 1000) % 60);
+    const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const weeks = Math.floor(days / 7);
+    const months = Math.floor(weeks / 4);
+    const years = Math.floor(months / 12);
+
+    const countdownElement_low = document.getElementById('countdown_low');
+    countdownElement_low.innerHTML = `
+      <p class="fast_counter">${addLeadingZero(hours)}:${addLeadingZero(minutes)}:${addLeadingZero(seconds)}</p>
+    `;
+
+    const countdownElement_high = document.getElementById('countdown_high');
+    const countdownText_high = [
+      formatTime(years, 'year'),
+      formatTime(months % 12, 'month'),
+      formatTime(weeks % 4, 'week'),
+      formatTime(days % 7, 'day')
+    ].filter(Boolean).join(', ');
+
+    countdownElement_high.innerHTML = `
+    <p class="slow_counter">Time left:${countdownText_high}</p>
+    `;
+
+    const targetElement = document.getElementById('target');
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const targetDateFormatted = new Date(targetDate).toLocaleString('de-DE', options);
+    targetElement.innerHTML = `
+      <p>Target Time: ${targetDateFormatted} o'clock</p>
+    `;
+
+    const newRotationSeconds = rotationSeconds - (360 / 60);
+    rotationSeconds = newRotationSeconds;
+    const img_t_seconds = document.getElementById('t_seconds_img');
+    img_t_seconds.style.transform = `rotate(${rotationSeconds}deg)`;
+    img_t_seconds.style.transition = `0.3s`;
+
+    const newRotationMinutes = rotationMinutes - (360 / 60 / 60);
+    rotationMinutes = newRotationMinutes;
+    const img_t_minutes = document.getElementById('t_minutes_img');
+    img_t_minutes.style.transform = `rotate(${rotationMinutes}deg)`;
+    //img_t_minutes.style.transition = `0.6s`;
+
+    const newRotationHours = rotationHours - (360 / 60 / 60 / 12);
+    rotationHours = newRotationHours;
+    const img_t_hours = document.getElementById('t_hours_img');
+    img_t_hours.style.transform = `rotate(${rotationHours}deg)`;
+    //img_t_hours.style.transition = `0.6s`;
+  }
+
+  // Aktualisiere jede Sekunde
+  setInterval(updateCountdown, 1000);
+
+  updateCountdown();
+</script>
+
+</html>
