@@ -1,0 +1,27 @@
+@font-face {
+    font-family: normal;
+    src: url(Unbounded-Regular.ttf);
+}
+
+html {
+    background: #161616;
+}
+
+body {
+    font-size:medium;
+    text-align: justify;
+    font-family: normal;
+    margin: auto;
+    width: 80%;
+    padding: 7%;
+    color: #383838;
+}
+
+.active {
+    color: #ffffff;
+}
+
+div
+{
+    display: inline-block;
+}
