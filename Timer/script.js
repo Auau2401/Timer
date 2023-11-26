@@ -64,14 +64,21 @@ const timer = setInterval(function() {
 
 		}
 
-		const seconds_array = codes["seconds"]["" + seconds].split("+");
+		if (seconds != 0){
+			const seconds_array = codes["seconds"]["" + seconds].split("+");
 
 		for (const element of seconds_array) {
 			document.getElementById(element).classList.add("active");
 		  }
-
-        
-
 	    }
+		if (minutes != 0){
+			const minutes_array = codes["minutes"]["" + minutes].split("+");
+
+		for (const element of minutes_array) {
+			document.getElementById(element).classList.add("active");
+		  }
+	    }
+
+		}
 	},
 1000);

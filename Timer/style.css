@@ -3,10 +3,6 @@
     src: url(Unbounded-Regular.ttf);
 }
 
-html {
-    background: #161616;
-}
-
 body {
     font-size:medium;
     text-align: justify;
@@ -14,14 +10,17 @@ body {
     margin: auto;
     width: 80%;
     padding: 7%;
-    color: #383838;
+    color: transparent;
+    text-shadow: 0px 0px 4px #383838;
+    background-color: #161616;
 }
 
 .active {
     color: #ffffff;
+    text-shadow: 0px 0px 20px #ffffffbb;
+    transition: 0.25s;
 }
 
-div
-{
+div{
     display: inline-block;
 }
