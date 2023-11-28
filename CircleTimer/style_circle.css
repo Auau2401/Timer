@@ -1,8 +1,15 @@
+@font-face {
+    font-family: normal;
+    src: url(Unbounded-Regular.ttf);
+}
+
 *{
-    font-family: sans-serif, 'Mitr';
+    font-size:medium;
+    font-family: normal;
     margin: 0;
     padding: 0;
     text-align: center;
+    color: #ffffff;
 }
 
 body {
@@ -12,13 +19,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #696969;
+    background-color: #161616;
 }
 
 .target_div {
     position: absolute;
-    top: 10px;
-    display: flex;
+    top: 0px;
+    display: none;
     justify-content: center;
     width: 100%;
 }
@@ -29,7 +36,7 @@ body {
 
 .countdown_high_div{
     position: absolute;
-    top: 30px;
+    top: 20px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -40,7 +47,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
+    width: 32%;
     text-align: center;
 }
   
@@ -54,7 +61,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 45%;
     text-align: center;
 }
 
@@ -68,7 +75,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35%;
+    width: 64%;
     text-align: center;
 }
 
