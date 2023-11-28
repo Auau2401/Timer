@@ -1,0 +1,130 @@
+@font-face {
+    font-family: normal;
+    src: url(Unbounded-Regular.ttf);
+}
+
+body {
+    font-size:medium;
+    text-align: justify;
+    font-family: normal;
+    margin: auto;
+    width: 80%;
+    padding: 7%;
+    color: transparent;
+    text-shadow: 0px 0px 4px #383838;
+    background-color: #161616;
+}
+
+.active {
+    color: #ffffff;
+    text-shadow: 0px 0px 20px #ffffffbb;
+    transition: 0.25s;
+}
+
+div{
+    display: inline-block;
+}
+
+#box{
+    color: #ffffff;
+    text-align: center;
+    margin: auto;
+    display: block;
+    border: 0.2rem solid #ffffff;
+    border-radius: 20px;
+
+}
+
+.select {
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: #ffffff;
+    outline: 4px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    margin: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .select {
+    color: #181717;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+    font-size:medium;
+    text-align: justify;
+    font-family: normal;
+  }
+  
+  .select:hover {
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  input {
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: #ffffff;
+    outline: 4px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    margin: 10px;
+    margin-bottom: 20px;
+    color: #181717;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+    font-size:medium;
+    text-align: justify;
+    font-family: normal;
+  }
+
+
+  .submit {
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: rgb(17, 226, 17);
+    outline: 4px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    margin: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .submit {
+    color: #181717;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+    font-size:medium;
+    text-align: justify;
+    font-family: normal;
+  }
+  
+  .submit:hover {
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  iframe{
+    max-width: 80%;
+  }
+  
