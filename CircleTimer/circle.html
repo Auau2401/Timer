@@ -6,15 +6,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-  <link rel="script" href="/script.js">
+  <link rel="stylesheet" href="/style_circle.css">
   <title>Timer</title>
 </head>
 <body onload="updateOnce()">
 
-  <div id="target" class="target_div">
-
-  </div>
+  
 
   <div id="countdown_high" class="countdown_high_div">
 
@@ -25,15 +22,15 @@
   </div>
 
   <div class="t_seconds">
-    <img id="t_seconds_img" src="/images/Circle.png">
+    <img id="t_seconds_img" src="https://github.com/Auau2401/Timer/blob/main/CircleTimer/images/Circle.png?raw=true">
   </div>
 
   <div class="t_minutes">
-    <img id="t_minutes_img" src="/images/Circle.png">
+    <img id="t_minutes_img" src="https://github.com/Auau2401/Timer/blob/main/CircleTimer/images/Circle.png?raw=true">
   </div>
 
   <div class="t_hours">
-    <img id="t_hours_img" src="/images/Circle.png">
+    <img id="t_hours_img" src="https://github.com/Auau2401/Timer/blob/main/CircleTimer/images/Circle.png?raw=true">
   </div>
 
   
@@ -41,7 +38,11 @@
 </body>
 
 <script>
-  const targetDate = new Date('2027-01-01T15:29:00').getTime();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const timestamp = urlParams.get('timestamp') * 1000
+    const targetDate = new Date(timestamp).getTime();
+
 
   const seconds = '';
   const minutes = '';
@@ -108,15 +109,15 @@
     ].filter(Boolean).join(', ');
 
     countdownElement_high.innerHTML = `
-    <p class="slow_counter">Time left:${countdownText_high}</p>
+    <p class="slow_counter">Time left: ${countdownText_high}</p>
     `;
 
-    const targetElement = document.getElementById('target');
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    const targetDateFormatted = new Date(targetDate).toLocaleString('de-DE', options);
-    targetElement.innerHTML = `
-      <p>Target Time: ${targetDateFormatted} o'clock</p>
-    `;
+    //const targetElement = document.getElementById('target');
+    //const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    //const targetDateFormatted = new Date(targetDate).toLocaleString('de-DE', options);
+    //targetElement.innerHTML = `
+      //<p>Target Time: ${targetDateFormatted} o'clock</p>
+    //`;
 
     const newRotationSeconds = rotationSeconds - (360 / 60);
     rotationSeconds = newRotationSeconds;
