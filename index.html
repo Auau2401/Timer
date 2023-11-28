@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Timer Challenge</title>
+</head>
+<body>
+    <div id="box"><h1>Timer Challenge</h1><h2>by Prommel & Auau</h2>
+    <h3 style="padding-top: 30px;">Lets get started!</h3>
+    <p>Please insert your end time:</p>
+    <input type="datetime-local" id="endTimeInput" value="2023-12-31T19:30" max="2025-06-14T00:00" min="2023-11-29T00:00"/>
+
+    <p>Please choose your timer: (Press any button below to update the timestamp from above!)</p>
+    <div id="buttons"><button class="select" onclick='select_word()'>word timer</button><button class="select" onclick="select_circle()"><s>egg</s> circle timer</button></div>
+    <p>Preview:</p>
+    <iframe src="https://reactorx.de/words.html?timestamp=1704047400", width="600px", height="500px", id="iframe", scrolling="no"></iframe>
+    <h3>The whole timer (big) (sometimes little bit buggy)</h3><p id = "urlp">https://reactorx.de/words.html?timestamp=1704047400</p>
+    <h3>IFrame for your own webpage:</h3><p id = "iframep">&lt;iframe src="https://reactorx.de/words.html?timestamp=1704047400", width="600px", height="500px", id="iframe">&lt;/iframe></p>
+    <br>
+    </div>
+    <script>
+        function select_word() {
+            console.log(document.querySelector('input[type="datetime-local"]').value)
+            const timestamp = new Date(document.querySelector('input[type="datetime-local"]').value);
+            document.getElementById("iframe").setAttribute("src", "words.html?timestamp=" + timestamp/1000);
+            document.getElementById("urlp").innerHTML = "https://reactorx.de/words.html?timestamp=" + timestamp/1000;
+            document.getElementById("iframep").innerHTML = '&lt;iframe src="https://reactorx.de/words.html?timestamp=' + timestamp/1000 + '", width="600px", height="500px", id="iframe"></iframe>';
+        }
+        function select_circle() {
+            console.log(document.querySelector('input[type="datetime-local"]').value)
+            const timestamp = new Date(document.querySelector('input[type="datetime-local"]').value);
+            document.getElementById("iframe").setAttribute("src", "circle.html?timestamp=" + timestamp/1000);
+            document.getElementById("urlp").innerHTML = "https://reactorx.de/circle.html?timestamp=" + timestamp/1000;
+            document.getElementById("iframep").innerHTML = '&lt;iframe src="https://reactorx.de/circle.html?timestamp=' + timestamp/1000 + '", width="600px", height="500px", id="iframe"></iframe>';
+        }
+    </script>
+    </body>
+    </html>
